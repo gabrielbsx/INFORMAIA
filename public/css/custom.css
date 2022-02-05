@@ -1,0 +1,52 @@
+@font-face {
+  font-family: gotham;
+  src: url("/fonts/gotham.otf") format("opentype");
+}
+
+@font-face {
+  font-family: gotham-bold;
+  src: url("/fonts/gotham-bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: gotham-black;
+  src: url("/fonts/gotham-black.otf") format("opentype");
+}
+
+.auth-bg {
+  background-color: #1664a7!important;
+}
+
+* {
+  font-family: 'Open Sans', sans-serif !important;
+}
+
+.fa .fas .fab {
+  font-family: 'Open Sans', sans-serif !important;
+}
+
+.text-primary {
+  color: #1664a7!important;
+}
+
+.btn-primary {
+  background-color: #1664a7!important;
+  transition: all 1s;
+}
+
+.logo-black {
+  font-family: gotham-black;
+}
+
+.footer-informaia {
+  font-family: gotham-black;
+  color: #1664a7!important;
+}
+
+i {
+  font-family: 'Open Sans', sans-serif !important;
+}
+
+.fa {
+  font-family: 'Open Sans', sans-serif !important;
+}

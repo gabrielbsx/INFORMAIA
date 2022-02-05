@@ -1,0 +1,4 @@
+{
+  "assets/app.js": "http://localhost:8080/assets/app.js",
+  "assets/dashboard.js": "http://localhost:8080/assets/dashboard.js"
+}

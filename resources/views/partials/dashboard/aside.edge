@@ -1,0 +1,33 @@
+<div id="kt_aside" class="aside aside-default aside-hoverable" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_toggle" style="">
+  <div class="aside-logo flex-column-auto pt-9 pb-5 text-center mx-auto" id="kt_aside_logo">
+    <a href="{{ route('home') }}">
+      <img alt="Logo" src="/images/logo-primary.png" style="height: 150px;" class="max-h-50px logo-default">
+      <img alt="Logo" src="/images/logo-primary.png" style="height: 150px;" class="max-h-50px logo-minimize">
+    </a>
+  </div>
+
+  <div class="aside-menu flex-column-fluid">
+
+    <div id="menuMain" class="menu menu-column menu-fit menu-rounded menu-title-gray-600 menu-icon-gray-400 menu-state-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-bold fs-5 my-5 mt-lg-2 mb-lg-0" id="kt_aside_menu" data-kt-menu="true">
+      <div class="menu-fit hover-scroll-y me-lg-n5 pe-lg-5 accordion" id="accordionExample" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto" data-kt-scroll-wrappers="#kt_aside_menu" data-kt-scroll-offset="20px" data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer" style="height: 876px;">
+        <div class="menu-item pt-5">
+          <div class="menu-content">
+            <span class="fw-bold text-muted text-uppercase fs-7">Painel de controle</span>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <a href="{{ route('administrator.tickets') }}" class="menu-link">
+            <i class="fas fa-user"></i>
+            <span class="menu-title">Tickets</span>
+          </a>
+        </div>
+        <div class="menu-item">
+          <a href="{{ route('administrator.faqs') }}" class="menu-link">
+            <span class="menu-title">FAQs</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

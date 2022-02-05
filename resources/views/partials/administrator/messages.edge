@@ -1,0 +1,23 @@
+@if(flashMessages.has('message'))
+  <div class="messages alert alert-warning text-light text-center col-md-12 my-3">
+    {{ flashMessages.get('message') }}
+  </div>
+@endif
+
+@if(flashMessages.has('success'))
+  <div class="messages row items-center justify-content-center my-3">
+    <div class="alert alert-success text-dark text-center col-md-12">
+      {{ flashMessages.get('success') }}
+    </div>
+  </div>
+@endif
+
+@if(flashMessages.has('errors'))
+  <div class="messages row items-center justify-content-center my-3">
+    @each(message in flashMessages.get('errors'))
+      <div class="alert alert-danger text-dark text-center col-md-12">
+        {{ message }}
+      </div>
+    @endeach
+  </div>
+@endif

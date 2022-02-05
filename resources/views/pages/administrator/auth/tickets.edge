@@ -1,0 +1,93 @@
+@layout('layouts/dashboard-administrator')
+@section('body')
+@include('partials/administrator/messages')
+<div class="toolbar" id="kt_toolbar">
+    <div class="container-fluid d-flex flex-stack flex-wrap flex-sm-nowrap">
+        <div class="d-flex flex-column align-items-start justify-content-center flex-wrap me-2">
+            <h1 class="text-dark fw-bolder my-1 fs-2">
+                Administração
+                <small class="text-muted fs-6 fw-normal ms-1"></small>
+            </h1>
+            <ul class="breadcrumb fw-bold fs-base my-1">
+                <li class="breadcrumb-item text-muted">
+                    <a href="{{ route('administrator.home') }}" class="text-muted text-hover-primary">Início</a>
+                </li>
+            </ul>
+        </div>
+        <div class="d-flex align-items-center flex-nowrap text-nowrap py-1">
+            <a href="{{ route('administrator.ticket.view.create') }}" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project"
+                id="kt_toolbar_primary_button">
+                Criar Ticket
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="post fs-6 mb-3 d-flex flex-column-fluid" id="kt_post">
+    <div class="container-xxl">
+        <div class="d-flex flex-column flex-lg-row">
+            <div class="flex-lg-row-fluid ms-lg-7 ms-xl-10">
+                <div class="card" id="kt_chat_messenger">
+                    <div class="card-header" id="kt_chat_messenger_header">
+                        <div class="card-title">
+                            <div class="d-flex justify-content-center flex-column me-3">
+                                <span class="fs-4 fw-bolder text-gray-900 text-hover-primary me-1 mb-2 lh-1">
+                                    Tickets
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body table-responsive" id="kt_chat_messenger_body">
+                        <table class="table align-middle table-row-dashed fs-6 gy-5 dataTable no-footer"
+                            id="kt_table_users">
+                            <thead>
+                                <tr class="text-center text-muted fw-bolder fs-7 text-uppercase gs-0">
+                                    <th style="text-align: left;">
+                                        Título
+                                    </th>
+                                    <th>
+                                        Status
+                                    </th>
+                                    <th class="text-end">
+                                        Ações
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-600 fw-bold">
+                                @each(ticket in tickets)
+                                <tr class="odd">
+                                    <td class="d-flex align-items-center">
+                                        {{ ticket.title }}
+                                    </td>
+                                    <td class="text-center">
+                                        @if(ticket.status == 0)
+                                            Respondido
+                                        @elseif(ticket.status == 1)
+                                            Não respondido
+                                        @endif
+                                    </td>
+                                    <td class="text-end">
+                                        <a href="{{ route('administrator.ticket.view.update', { id: ticket.id }) }}"
+                                            class="btn btn-warning btn-active-warning-primary btn-sm">
+                                            Atualizar
+                                        </a>
+                                        <a href="{{ route('administrator.ticket.delete', { id: ticket.id }) }}"
+                                            class="btn btn-danger btn-active-danger-primary btn-sm">
+                                            Desativar
+                                        </a>
+                                    </td>
+                                </tr>
+                                @endeach
+
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@end

@@ -1,0 +1,14 @@
+{
+  "entrypoints": {
+    "app": {
+      "js": [
+        "http://localhost:8080/assets/app.js"
+      ]
+    },
+    "dashboard": {
+      "js": [
+        "http://localhost:8080/assets/dashboard.js"
+      ]
+    }
+  }
+}
