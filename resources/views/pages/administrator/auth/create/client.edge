@@ -1,1 +1,70 @@
-client create
+@layout('layouts/dashboard-administrator')
+@section('body')
+  @include('partials/administrator/messages')
+  <div class="toolbar" id="kt_toolbar">
+    <div class="container-fluid d-flex flex-stack flex-wrap flex-sm-nowrap">
+      <div class="d-flex flex-column align-items-start justify-content-center flex-wrap me-2">
+        <h1 class="text-dark fw-bolder my-1 fs-2">
+          Cliente
+          <small class="text-muted fs-6 fw-normal ms-1"></small>
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="post fs-6 mb-3 d-flex flex-column-fluid" id="kt_post">
+    <div class="container-xxl">
+      <div class="d-flex flex-column flex-lg-row">
+        <div class="flex-lg-row-fluid ms-lg-7 ms-xl-10">
+          <div class="card" id="kt_chat_messenger">
+            <div class="card-header" id="kt_chat_messenger_header">
+              <div class="card-title">
+                <div class="d-flex justify-content-center flex-column me-3">
+                  <span class="fs-4 fw-bolder text-gray-900 text-hover-primary me-1 mb-2 lh-1">
+                    Cliente
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-body table-responsive" id="kt_chat_messenger_body">
+              <form method="POST" action="{{ route('administrator.client.create') }}">
+                {{ csrfField() }}
+                <div class="form-group my-4">
+                    <label for="name">Nome</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+                
+                <div class="form-group my-4">
+                    <label for="name">Usuário</label>
+                    <input type="text" class="form-control" id="username" name="username">
+                </div>
+
+                <div class="form-group my-4">
+                    <label for="email">E-mail</label>
+                    <input type="email" class="form-control" id="email" name="email">
+                </div>
+
+                <div class="form-group my-4">
+                    <label for="password">Senha</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+
+                <div class="form-group my-4">
+                    <label for="passwordConfirmation">Confirmar Senha</label>
+                    <input type="password" class="form-control" id="passwordConfirmation" name="passwordConfirmation">
+                </div>
+                
+                <div class="form-group my-4 text-center">
+                    <button type="submit" class="btn btn-primary">Atualizar</button>
+                </div>
+              </form>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+@end

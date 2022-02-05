@@ -13,6 +13,8 @@ Route.group(() => {
     Route.get('/signout', 'Dashboard/Administrator/AuthenticatesController.signout').as('administrator.auth.signout')
     Route.get('/tickets', 'Dashboard/Administrator/ViewersController.tickets').as('administrator.tickets')
     Route.get('/faqs', 'Dashboard/Administrator/ViewersController.faqs').as('administrator.faqs')
+    Route.get('/users', 'Dashboard/Administrator/ViewersController.users').as('administrator.users')
+    Route.get('/clients', 'Dashboard/Administrator/ViewersController.clients').as('administrator.clients')
     
     Route.group(() => {
       Route.get('/user/:id', 'Dashboard/Administrator/UsersController.updateview').as('administrator.user.view.update')

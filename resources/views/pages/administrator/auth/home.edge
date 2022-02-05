@@ -15,10 +15,13 @@
         </ul>
       </div>
       <div class="d-flex align-items-center flex-nowrap text-nowrap py-1">
-        <a href="#" class="btn bg-body btn-color-gray-700 btn-active-primary me-4" data-bs-toggle="modal" data-bs-target="#kt_modal_invite_friends">
+        <a href="{{ route('administrator.users') }}" class="btn bg-body btn-color-gray-700 btn-active-primary me-4">
+          Vizualizar administratores
+        </a>
+        <a href="{{ route('administrator.clients') }}" class="btn bg-body btn-color-gray-700 btn-active-primary me-4">
           Vizualizar clientes
         </a>
-        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project" id="kt_toolbar_primary_button">
+        <a href="{{ route('administrator.client.view.create') }}" class="btn btn-primary">
           Adicionar cliente
         </a>
       </div>

@@ -22,4 +22,16 @@ export default class ViewersController {
     const users = await Users.query().paginate(1, 5)
     return response.json({ users })
   }
+
+  public async users({ request, view }: HttpContextContract) {
+    const users = await Users.query().orderBy('id', 'desc').paginate(request.input('page_users', 1), 5)
+
+    return view.render('pages/administrator/auth/users', { users })
+  }
+
+  public async clients({ request, view }: HttpContextContract) {
+    const clients = await Client.query().orderBy('id', 'desc').paginate(request.input('page_clients', 1), 5)
+
+    return view.render('pages/administrator/auth/clients', { clients })
+  }
 }
