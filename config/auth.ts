@@ -17,9 +17,9 @@ import { AuthConfig } from '@ioc:Adonis/Addons/Auth'
 |
 */
 const authConfig: AuthConfig = {
-  guard: 'web',
+  guard: 'administrator',
   guards: {
-    web: {
+    administrator: {
       driver: 'session',
 
       provider: {

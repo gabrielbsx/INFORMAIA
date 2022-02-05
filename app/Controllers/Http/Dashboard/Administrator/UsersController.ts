@@ -14,7 +14,8 @@ export default class UsersController {
     public async delete({ params, session, response }: HttpContextContract) {
         const user = await Users.findOrFail(params.id)
 
-        await user.delete()
+        user.deactivated = true
+        await user.save()
 
         session.flash('success', 'Usuário deletado com sucesso!')
 

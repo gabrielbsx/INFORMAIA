@@ -18,7 +18,8 @@ export default class ClientsController {
     public async delete({ params, session, response }: HttpContextContract) {
         const client = await Client.findOrFail(params.id)
 
-        await client.delete()
+        client.deactivated = true
+        await client.save()
 
         session.flash('success', 'Cliente deletado com sucesso!')
 
@@ -34,8 +35,8 @@ export default class ClientsController {
     public async create({ request, auth, session, response }: HttpContextContract) {
         await request.validate(CreateClientValidator)
         const data: ClientData = request.only(['name', 'username', 'email', 'password'])
-        
-        data.user_id = auth.use('web').user!.id
+
+        data.user_id = auth.use('administrator').user!.id
 
         await Client.create(data)
 

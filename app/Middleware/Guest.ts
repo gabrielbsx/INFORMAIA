@@ -5,6 +5,6 @@ export default class Guest {
     if (!auth.use('client').isLoggedIn) {
       return await next()
     }
-    return await response.redirect().toRoute('auth.home')
+    return await response.redirect().toRoute('client.guest.login')
   }
 }

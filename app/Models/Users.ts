@@ -47,6 +47,9 @@ export default class Users extends BaseModel {
   @column()
   public sector_id?: number
 
+  @column()
+  public deactivated: boolean
+
   @hasOne(() => UserSector, {
     foreignKey: 'sector_id',
     localKey: 'id',

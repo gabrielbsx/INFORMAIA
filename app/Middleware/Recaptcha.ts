@@ -7,7 +7,6 @@ export default class Recaptcha {
     { request, session, response }: HttpContextContract,
     next: () => Promise<void>
   ) {
-    //return await next()
     const dataRequest = await axios.post(
       `https://www.google.com/recaptcha/api/siteverify?secret=${Env.get(
         'RECAPTCHA_TOKEN'

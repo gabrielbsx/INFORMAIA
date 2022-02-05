@@ -51,6 +51,9 @@ export default class Client extends BaseModel {
   @column()
   public sector_id?: number
 
+  @column()
+  public deactivated: boolean
+
   @hasOne(() => ClientSector, {
     foreignKey: 'sector_id',
     localKey: 'id',
