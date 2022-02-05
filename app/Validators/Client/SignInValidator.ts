@@ -1,7 +1,7 @@
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
-export default class SigninValidator {
+export default class SignInValidator {
   constructor(protected ctx: HttpContextContract) {}
 
   /*
@@ -26,7 +26,7 @@ export default class SigninValidator {
   public schema = schema.create({
     email: schema.string({ trim: true }, [
       rules.email(),
-      rules.exists({ table: 'users', column: 'email' }),
+      rules.exists({ table: 'clients', column: 'email' }),
     ]),
     password: schema.string({ trim: true }, [rules.minLength(8), rules.maxLength(16)]),
   })
@@ -43,11 +43,11 @@ export default class SigninValidator {
    *
    */
   public messages = {
-    'email.required': ' e-mail obrigatório',
-    'email.email': ' e-mail inválido',
-    'email.exists': ' conta não cadastrada',
-    'password.required': ' senha obrigatória',
-    'password.minLength': ' senha deve conter no mínimo 8 caracteres',
-    'password.maxLength': ' senha deve conter no máximo 16 caracteres',
+    'email.required': ' email é obrigatório',
+    'email.email': ' email inválido',
+    'email.exists': ' email não cadastrado',
+    'password.required': ' senha é obrigatório',
+    'password.minLength': ' senha deve ter no mínimo 8 caracteres',
+    'password.maxLength': ' senha deve ter no máximo 16 caracteres',
   }
 }

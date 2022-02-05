@@ -1,11 +1,11 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import Users from 'App/Models/Users'
-import SigninValidator from 'App/Validators/Guest/SigninValidator'
-import SignupValidator from 'App/Validators/Guest/SignupValidator'
+import Client from 'App/Models/Client'
+import SignInValidator from 'App/Validators/Client/SignInValidator'
+import SignUpValidator from 'App/Validators/Client/SignUpValidator'
 
 export default class AuthenticatesController {
   public async signin({ request, auth, response, session }: HttpContextContract) {
-    await request.validate(SigninValidator)
+    await request.validate(SignInValidator)
     const data = request.only(['email', 'password'])
 
     await auth.use('client').attempt(data.email, data.password)
@@ -19,23 +19,24 @@ export default class AuthenticatesController {
     auth.use('client').user!.status = 1
     auth.use('client').user!.save()
 
+    session.flash('success', 'Bem vindo!')
     return response.redirect().toRoute('auth.home')
   }
 
   public async signup({ request, response, auth }: HttpContextContract) {
-    await request.validate(SignupValidator)
+    await request.validate(SignUpValidator)
     const data = request.only(['name', 'username', 'email', 'password', 'passwordConfirmation'])
 
-    const user = new Users()
+    const client = new Client()
 
-    user.username = data.username
-    user.name = data.name
-    user.email = data.email
-    user.password = data.password
+    client.username = data.username
+    client.name = data.name
+    client.email = data.email
+    client.password = data.password
 
-    await user.save()
+    await client.save()
 
-    await auth.attempt(user.email, data.password)
+    await auth.attempt(client.email, data.password)
 
     return response.redirect().toRoute('auth.home')
   }

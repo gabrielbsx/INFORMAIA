@@ -1,7 +1,7 @@
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
-export default class SigninValidator {
+export default class SignUpValidator {
   constructor(protected ctx: HttpContextContract) {}
 
   /*
@@ -24,11 +24,21 @@ export default class SigninValidator {
    *    ```
    */
   public schema = schema.create({
+    name: schema.string({ trim: true }, [rules.required()]),
+    username: schema.string({ trim: true }, [
+      rules.minLength(4),
+      rules.maxLength(16),
+      rules.unique({ table: 'clients', column: 'username' }),
+    ]),
     email: schema.string({ trim: true }, [
       rules.email(),
-      rules.exists({ table: 'users', column: 'email' }),
+      rules.unique({ table: 'clients', column: 'email' }),
     ]),
-    password: schema.string({ trim: true }, [rules.minLength(8), rules.maxLength(16)]),
+    password: schema.string({ trim: true }, [
+      rules.minLength(8),
+      rules.maxLength(16),
+      rules.confirmed('passwordConfirmation'),
+    ]),
   })
 
   /**
@@ -43,11 +53,17 @@ export default class SigninValidator {
    *
    */
   public messages = {
-    'email.required': ' e-mail obrigatório',
-    'email.email': ' e-mail inválido',
-    'email.exists': ' conta não cadastrada',
-    'password.required': ' senha obrigatória',
-    'password.minLength': ' senha deve conter no mínimo 8 caracteres',
-    'password.maxLength': ' senha deve conter no máximo 16 caracteres',
+    'name.required': ' nome é obrigatório',
+    'username.required': ' nome de usuário é obrigatório',
+    'username.minLength': ' nome de usuário deve ter no mínimo 4 caracteres',
+    'username.maxLength': ' nome de usuário deve ter no máximo 16 caracteres',
+    'username.unique': ' nome de usuário já cadastrado',
+    'email.required': ' email é obrigatório',
+    'email.email': ' email inválido',
+    'email.unique': ' email já cadastrado',
+    'password.required': ' senha é obrigatório',
+    'password.minLength': ' senha deve ter no mínimo 8 caracteres',
+    'password.maxLength': ' senha deve ter no máximo 16 caracteres',
+    'password.confirmed': ' senhas não conferem',
   }
 }

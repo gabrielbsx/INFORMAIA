@@ -11,8 +11,8 @@ Route.group(() => {
     Route.on('/register').render('pages/dashboard/guest/register').as('client.guest.register')
     Route.on('/recovery').render('pages/dashboard/guest/recovery').as('client.guest.recovery')
   
-    Route.post('/login', 'Dashboard/AuthenticatesController.signin').as('client.guest.signin')
-    Route.post('/register', 'Dashboard/AuthenticatesController.signup').as('client.guest.signup')
-    Route.post('/recovery', 'Dashboard/AuthenticatesController.recoverybyemail').as('client.guest.recoverybyemail')
+    Route.post('/login', 'Dashboard/Client/AuthenticatesController.signin').as('client.guest.signin')
+    Route.post('/register', 'Dashboard/Client/AuthenticatesController.signup').as('client.guest.signup')
+    Route.post('/recovery', 'Dashboard/Client/AuthenticatesController.recoverybyemail').as('client.guest.recoverybyemail')
   }).middleware(['guest'])
 }).prefix('client')
