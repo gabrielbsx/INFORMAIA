@@ -1,5 +1,14 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Users from 'App/Models/Users'
+import CreateAdministratorValidator from 'App/Validators/Administrator/CreateAdministratorValidator'
+import UpdateAdministratorValidator from 'App/Validators/Administrator/UpdateAdministratorValidator'
+
+interface AdministratorData {
+    name: string
+    email: string
+    username: string
+    password: string
+}
 
 export default class UsersController {
     public async delete({ params, session, response }: HttpContextContract) {
@@ -13,12 +22,8 @@ export default class UsersController {
     }
 
     public async create({ request, session, response }: HttpContextContract) {
-        const data = request.only(['name', 'email', 'password', 'password_confirmation'])
-
-        if (data.password !== data.password_confirmation) {
-            session.flash('error', 'Senhas não conferem!')
-            return response.redirect().toRoute('administrator.home')
-        }
+        await request.validate(CreateAdministratorValidator)
+        const data: AdministratorData = request.only(['name', 'username', 'email', 'password'])
 
         await Users.create(data)
 
@@ -34,11 +39,13 @@ export default class UsersController {
     }
 
     public async update({ params, request, session, response }: HttpContextContract) {
-        const data = request.only(['name', 'email', 'password', 'password_confirmation'])
+        await request.validate(UpdateAdministratorValidator)
+        const data: AdministratorData = request.only(['name', 'username', 'email', 'password'])
 
         const user = await Users.findOrFail(params.id)
 
         user.name = data.name
+        user.username = data.username
         user.email = data.email
         user.password = data.password
 
