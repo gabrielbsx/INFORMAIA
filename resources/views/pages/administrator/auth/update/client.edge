@@ -29,6 +29,7 @@
 
             <div class="card-body table-responsive" id="kt_chat_messenger_body">
               <form method="POST" action="{{ route('administrator.client.update', { id: client.id }) }}">
+                {{ csrfField() }}
                 <div class="form-group my-4">
                     <label for="name">Nome</label>
                     <input type="text" class="form-control" id="name" name="name" value="{{ client.name }}">
