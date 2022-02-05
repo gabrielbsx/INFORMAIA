@@ -28,14 +28,18 @@
             </div>
 
             <div class="card-body table-responsive" id="kt_chat_messenger_body">
-              <form method="POST" action="{{ route('administrator.client.update', { id: user.id }) }}">
+              <form method="POST" action="{{ route('administrator.client.update', { id: client.id }) }}">
                 <div class="form-group my-4">
                     <label for="name">Nome</label>
-                    <input type="text" class="form-control" id="name" name="name" value="{{ user.name }}">
+                    <input type="text" class="form-control" id="name" name="name" value="{{ client.name }}">
+                </div>
+                <div class="form-group my-4">
+                    <label for="username">Usuário</label>
+                    <input type="text" class="form-control" id="username" name="username" value="{{ client.username }}">
                 </div>
                 <div class="form-group my-4">
                     <label for="email">E-mail</label>
-                    <input type="email" class="form-control" id="email" name="email" value="{{ user.email }}">
+                    <input type="email" class="form-control" id="email" name="email" value="{{ client.email }}">
                 </div>
                 <div class="form-group my-4">
                     <label for="password">Senha</label>
@@ -43,7 +47,7 @@
                 </div>
                 <div class="form-group my-4">
                     <label for="password_confirmation">Confirmar senha</label>
-                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
+                    <input type="password" class="form-control" id="passwordConfirmation" name="passwordConfirmation">
                 </div>
                 <div class="form-group my-4 text-center">
                     <button type="submit" class="btn btn-primary">Atualizar</button>
