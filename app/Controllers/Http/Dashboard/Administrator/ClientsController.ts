@@ -2,6 +2,14 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Client from 'App/Models/Client'
 import CreateClientValidator from 'App/Validators/Administrator/CreateClientValidator'
 
+interface ClientData {
+    name: string
+    email: string
+    username: string
+    password: string
+    user_id?: number
+}
+
 export default class ClientsController {
     public async createview({ view }: HttpContextContract) {
         return view.render('pages/administrator/auth/create/client')
@@ -23,9 +31,11 @@ export default class ClientsController {
         return view.render('pages/administrator/auth/update/client', { client })
     }
 
-    public async create({ request, session, response }: HttpContextContract) {
+    public async create({ request, auth, session, response }: HttpContextContract) {
         await request.validate(CreateClientValidator)
-        const data = request.only(['name', 'email', 'password', 'password_confirmation'])
+        const data: ClientData = request.only(['name', 'username', 'email', 'password'])
+        
+        data.user_id = auth.use('web').user!.id
 
         await Client.create(data)
 
