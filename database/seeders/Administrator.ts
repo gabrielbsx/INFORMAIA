@@ -6,6 +6,7 @@ export default class AdministratorSeeder extends BaseSeeder {
     // Write your database queries inside the run method
     await Users.create({
       name: 'Administrator',
+      username: 'admininistrator',
       email: 'administrator@kentaro.com.br',
       password: '@K3nt3r0',
       status: 0,
