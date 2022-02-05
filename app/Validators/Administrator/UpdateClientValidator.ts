@@ -1,7 +1,7 @@
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
-export default class CreateClientValidator {
+export default class UpdateClientValidator {
 	constructor(protected ctx: HttpContextContract) {
 	}
 
@@ -66,12 +66,12 @@ export default class CreateClientValidator {
 		'username.minLength': ' nome de usuário deve ter no mínimo 8 caracteres',
 		'username.maxLength': ' nome de usuário deve ter no máximo 16 caracteres',
 		'username.unique': ' nome de usuário já existe',
-		'password.required': ' senha obrigatória',
-		'password.minLength': ' senha deve conter no mínimo 8 caracteres',
-		'password.maxLength': ' senha deve conter no máximo 16 caracteres',
-		'password.confirmed': ' senhas não conferem',
 		'email.required': ' email obrigatório',
 		'email.email': ' email inválido',
-		'email.unique': ' email já cadastrado',
+		'email.unique': ' email já existe',
+		'password.required': ' senha obrigatória',
+		'password.minLength': ' senha deve ter no mínimo 8 caracteres',
+		'password.maxLength': ' senha deve ter no máximo 16 caracteres',
+		'password.confirmed': ' senhas não conferem',
 	}
 }

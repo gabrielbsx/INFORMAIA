@@ -44,7 +44,7 @@ export default class ClientsController {
     }
 
     public async update({ params, request, session, response }: HttpContextContract) {
-        const data = request.only(['name', 'email', 'password', 'password_confirmation'])
+        const data = request.only(['username', 'name', 'email', 'password'])
 
         const client = await Client.findOrFail(params.id)
 
