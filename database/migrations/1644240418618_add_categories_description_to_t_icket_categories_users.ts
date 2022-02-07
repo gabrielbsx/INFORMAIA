@@ -1,7 +1,7 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
-export default class AddDescriptionToClientTickets extends BaseSchema {
-  protected tableName = 'client_ticket_categories'
+export default class AddCategoriesDescriptionToTIcketCategoriesUsers extends BaseSchema {
+  protected tableName = 'ticket_categories'
 
   public async up() {
     this.schema.alterTable(this.tableName, (table) => {
