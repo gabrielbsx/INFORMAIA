@@ -46,6 +46,9 @@ export default class Client extends BaseModel {
   public user_id: number
 
   @column()
+  public company_id?: number
+
+  @column()
   public rememberMeToken?: string
 
   @column()

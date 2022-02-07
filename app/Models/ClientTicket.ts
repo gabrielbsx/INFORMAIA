@@ -57,7 +57,7 @@ export default class ClientTicket extends BaseModel {
     foreignKey: 'client_id',
     localKey: 'id',
   })
-  public User: BelongsTo<typeof Client>
+  public Client: BelongsTo<typeof Client>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

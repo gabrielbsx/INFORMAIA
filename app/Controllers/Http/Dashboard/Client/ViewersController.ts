@@ -1,19 +1,23 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Client from 'App/Models/Client'
 import ClientLicense from 'App/Models/ClientLicense'
+import ClientTicket from 'App/Models/ClientTicket'
 import Ticket from 'App/Models/Ticket'
 import Users from 'App/Models/Users'
 import { v4 } from 'uuid'
 
 export default class ViewersController {
-  public async home({ view, request }: HttpContextContract) {
-    const clients = await Client.query().orderBy('id', 'desc').paginate(request.input('clients', 1), 5)
+  public async home({ view, request, auth }: HttpContextContract) {
+    const company_id = auth.use('client').user?.company_id
 
-    const tickets = await Ticket.query()
+    const tickets = await ClientTicket.query()
       .orderBy('id', 'desc')
+      .whereHas('Client', (builder) => {
+        builder.where('company_id', company_id)
+      })
       .paginate(request.input('tickets', 1), 5)
 
-    return view.render('pages/dashboard/auth/home', { users, tickets })
+    return view.render('pages/dashboard/auth/home', { tickets })
   }
 
   public async getAllUsers({ response }: HttpContextContract) {
