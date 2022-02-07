@@ -2,7 +2,6 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Client from 'App/Models/Client'
 import ClientLicense from 'App/Models/ClientLicense'
 import ClientTicket from 'App/Models/ClientTicket'
-import Ticket from 'App/Models/Ticket'
 import Users from 'App/Models/Users'
 import { v4 } from 'uuid'
 
