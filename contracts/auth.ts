@@ -70,8 +70,8 @@ declare module '@ioc:Adonis/Addons/Auth' {
     | the `user` provider for fetching user details.
     |
     */
-    web: {
-      implementation: SessionGuardContract<'user', 'web'>,
+    administrator: {
+      implementation: SessionGuardContract<'user', 'administrator'>,
       config: SessionGuardConfig<'user'>,
     },
     client: {

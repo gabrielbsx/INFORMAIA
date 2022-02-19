@@ -2,8 +2,7 @@ import BaseSeeder from '@ioc:Adonis/Lucid/Seeder'
 import Users from 'App/Models/Users'
 
 export default class AdministratorSeeder extends BaseSeeder {
-  public async run () {
-    // Write your database queries inside the run method
+  public async run() {
     await Users.create({
       name: 'Administrator',
       username: 'admininistrator',

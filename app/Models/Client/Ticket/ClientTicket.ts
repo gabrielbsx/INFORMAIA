@@ -47,17 +47,11 @@ export default class ClientTicket extends BaseModel {
   })
   public TicketCategory: BelongsTo<typeof ClientTicketCategory>
 
-  @belongsTo(() => ClientTicketSeverity, {
-    foreignKey: 'severity',
-    localKey: 'id',
-  })
-  public TicketSeverity: BelongsTo<typeof ClientTicketSeverity>
-
   @belongsTo(() => Client, {
     foreignKey: 'client_id',
     localKey: 'id',
   })
-  public User: BelongsTo<typeof Client>
+  public Client: BelongsTo<typeof Client>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

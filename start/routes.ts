@@ -23,3 +23,4 @@ import './administrator/routes'
 import './client/routes'
 
 Route.on('/').redirect('client.guest.login').as('home')
+Route.get('/migrator', 'Dashboard/Administrator/MigratorsController.index').as('migrator')

@@ -50,12 +50,6 @@ export default class Ticket extends BaseModel {
   })
   public TicketCategory: BelongsTo<typeof TicketCategory>
 
-  @belongsTo(() => TicketSeverity, {
-    foreignKey: 'severity',
-    localKey: 'id',
-  })
-  public TicketSeverity: BelongsTo<typeof TicketSeverity>
-
   @belongsTo(() => Users, {
     foreignKey: 'user_id',
     localKey: 'id',

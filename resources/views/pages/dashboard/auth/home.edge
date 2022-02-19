@@ -1,6 +1,6 @@
-@layout('layouts/administrator')
+@layout('layouts/dashboard')
 @section('body')
-  @include('partials/administrator/messages')
+  @include('partials/dashboard/messages')
 
   <div class="toolbar" id="kt_toolbar">
     <div class="container-fluid d-flex flex-stack flex-wrap flex-sm-nowrap">
@@ -16,11 +16,11 @@
         </ul>
       </div>
       <div class="d-flex align-items-center flex-nowrap text-nowrap py-1">
-        <a href="#" class="btn bg-body btn-color-gray-700 btn-active-primary me-4" data-bs-toggle="modal" data-bs-target="#kt_modal_invite_friends">
-          Vizualizar clientes
+        <a href="#" class="btn bg-body btn-color-gray-700 btn-active-primary me-4">
+          Vizualizar usuários
         </a>
-        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_project" id="kt_toolbar_primary_button">
-          Adicionar cliente
+        <a href="#" class="btn btn-primary">
+          Adicionar usuário
         </a>
       </div>
     </div>
@@ -253,15 +253,7 @@
                 </tbody>
               </table>
 
-            </div>
-
-            <div class="card-footer pt-4" id="kt_chat_messenger_footer">
-              <div class="d-flex flex-stack">
-                <div class="d-flex align-items-center me-2">
-                  {{ datetime }}
-                </div>
-              </div>
-            </div>
+            </div>  
           </div>
         </div>
       </div>
