@@ -35,6 +35,7 @@
     "@adonisjs/session": "^6.1.1",
     "@adonisjs/shield": "^7.0.5",
     "@adonisjs/view": "^6.0.0",
+    "@types/socket.io": "^3.0.2",
     "axios": "^0.21.1",
     "luxon": "^2.0.1",
     "mysql2": "^2.3.0",
@@ -43,6 +44,7 @@
     "proxy-addr": "^2.0.7",
     "querystring": "^0.2.1",
     "reflect-metadata": "^0.1.13",
+    "socket.io": "^4.4.1",
     "source-map-support": "^0.5.19",
     "uuid": "^8.3.2"
   }
