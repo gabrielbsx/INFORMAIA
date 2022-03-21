@@ -1,5 +1,5 @@
 import BaseSeeder from '@ioc:Adonis/Lucid/Seeder'
-import Users from 'App/Models/Users'
+import Users from 'App/Models/Administrator/General/Users'
 
 export default class AdministratorSeeder extends BaseSeeder {
   public async run() {

@@ -1,4 +1,4 @@
-import Users from 'App/Models/Users'
+import Users from '../General/Users'
 import { DateTime } from 'luxon'
 import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
 import Faq from './Faq'

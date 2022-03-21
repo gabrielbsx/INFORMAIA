@@ -2,7 +2,7 @@ import { DateTime } from 'luxon'
 import { BaseModel, BelongsTo, belongsTo, column, hasMany, HasMany } from '@ioc:Adonis/Lucid/Orm'
 import ClientTicket from './ClientTicket'
 import ClientTicketAnswerAttachment from './ClientTicketAnswerAttachment'
-import Client from './Client'
+import Client from '../General/Client'
 
 export default class ClientTicketAnswer extends BaseModel {
   @column({ isPrimary: true })

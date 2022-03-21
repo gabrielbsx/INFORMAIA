@@ -9,10 +9,10 @@ import {
   hasOne,
   HasOne,
 } from '@ioc:Adonis/Lucid/Orm'
-import Ticket from './Ticket'
-import TicketAnswer from './TicketAnswer'
-import TicketAnswerAttachment from './TicketAnswerAttachment'
-import TicketAttachment from './TicketAttachment'
+import Ticket from '../Ticket/Ticket'
+import TicketAnswer from '../Ticket/TicketAnswer'
+import TicketAnswerAttachment from '../Ticket/TicketAnswerAttachment'
+import TicketAttachment from '../Ticket/TicketAttachment'
 import UserProfile from './UserProfile'
 import UserSector from './UserSector'
 

@@ -1,5 +1,5 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import Users from 'App/Models/Users'
+import Users from 'App/Models/Administrator/General/Users'
 import CreateAdministratorValidator from 'App/Validators/Administrator/CreateAdministratorValidator'
 import UpdateAdministratorValidator from 'App/Validators/Administrator/UpdateAdministratorValidator'
 

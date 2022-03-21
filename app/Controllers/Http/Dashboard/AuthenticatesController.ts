@@ -1,5 +1,5 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import Users from 'App/Models/Users'
+import Users from 'App/Models/Administrator/General/Users'
 import SigninValidator from 'App/Validators/Guest/SigninValidator'
 import SignupValidator from 'App/Validators/Guest/SignupValidator'
 
@@ -9,11 +9,11 @@ export default class AuthenticatesController {
 
     await request.validate(SigninValidator)
 
-    await auth.use('web').attempt(data.email, data.password)
+    await auth.use('client').attempt(data.email, data.password)
 
-    auth.use('web').user!.status = 1
+    auth.use('client').user!.status = 1
 
-    auth.use('web').user!.save()
+    auth.use('client').user!.save()
 
     return response.redirect().toRoute('auth.home')
   }
@@ -38,9 +38,9 @@ export default class AuthenticatesController {
   }
 
   public async signout({ response, auth }: HttpContextContract) {
-    auth.use('web').user!.status = 0
+    auth.use('client').user!.status = 0
 
-    auth.use('web').user!.save()
+    auth.use('client').user!.save()
 
     await auth.logout()
 

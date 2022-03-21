@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon'
 import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
 import Client from './Client'
-import Users from './Users'
+import Users from '../../Administrator/General/Users'
 
 export default class ClientLicense extends BaseModel {
   @column({ isPrimary: true })

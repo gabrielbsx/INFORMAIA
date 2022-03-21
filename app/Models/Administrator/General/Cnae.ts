@@ -1,7 +1,5 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
-import ClientJuridica from './ClientJuridica'
-import UserJuridica from './UserJuridica'
+import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
 
 export default class Cnae extends BaseModel {
   @column({ isPrimary: true })
@@ -12,18 +10,6 @@ export default class Cnae extends BaseModel {
 
   @column()
   public description: string
-
-  @hasMany(() => ClientJuridica, {
-    foreignKey: 'cnae',
-    localKey: 'cnae',
-  })
-  public ClientJuridica: HasMany<typeof ClientJuridica>
-
-  @hasMany(() => UserJuridica, {
-    foreignKey: 'cnae',
-    localKey: 'cnae',
-  })
-  public UserJuridica: HasMany<typeof UserJuridica>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

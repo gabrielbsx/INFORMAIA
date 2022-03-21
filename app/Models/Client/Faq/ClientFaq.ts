@@ -1,8 +1,8 @@
 import { DateTime } from 'luxon'
 import { BaseModel, belongsTo, BelongsTo, column } from '@ioc:Adonis/Lucid/Orm'
 import { slugify } from '@ioc:Adonis/Addons/LucidSlugify'
-import Client from './Client'
-import FaqCategory from './FaqCategory'
+import Client from '../General/Client'
+import FaqCategory from '../Faq/ClientFaqCategory'
 
 export default class ClientFaq extends BaseModel {
   @column({ isPrimary: true })

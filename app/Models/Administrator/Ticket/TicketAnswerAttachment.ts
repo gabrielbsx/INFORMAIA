@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon'
 import { BaseModel, belongsTo, BelongsTo, column } from '@ioc:Adonis/Lucid/Orm'
 import TicketAnswer from './TicketAnswer'
-import Users from './Users'
+import Users from '../General/Users'
 
 export default class TicketAnswerAttachment extends BaseModel {
   @column({ isPrimary: true })

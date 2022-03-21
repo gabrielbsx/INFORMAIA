@@ -1,5 +1,5 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import Client from 'App/Models/Client'
+import Client from 'App/Models/Client/General/Client'
 import SignInValidator from 'App/Validators/Client/SignInValidator'
 import SignUpValidator from 'App/Validators/Client/SignUpValidator'
 

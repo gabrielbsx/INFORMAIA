@@ -26,7 +26,7 @@ const authConfig: AuthConfig = {
         driver: 'lucid',
         identifierKey: 'id',
         uids: ['email'],
-        model: () => import('App/Models/Users'),
+        model: () => import('App/Models/Administrator/General/Users'),
       },
     },
     client: {
@@ -36,7 +36,7 @@ const authConfig: AuthConfig = {
         driver: 'lucid',
         identifierKey: 'id',
         uids: ['email'],
-        model: () => import('App/Models/Client'),
+        model: () => import('App/Models/Client/General/Client'),
       },
     },
   },

@@ -1,5 +1,5 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import Ticket from 'App/Models/Ticket'
+import Ticket from 'App/Models/Administrator/Ticket/Ticket'
 
 export default class TicketsController {
     public async createview({ view }: HttpContextContract) {

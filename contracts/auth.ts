@@ -5,9 +5,8 @@
  * file.
  */
 
-import users from 'App/Models/Users'
-import clients from 'App/Models/Client'
-import subclients from 'App/Models/Subclient'
+import users from 'App/Models/Administrator/General/Users'
+import clients from 'App/Models/Client/General/Client'
 
 declare module '@ioc:Adonis/Addons/Auth' {
   /*

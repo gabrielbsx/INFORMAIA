@@ -1,8 +1,7 @@
 import { DateTime } from 'luxon'
 import { BaseModel, BelongsTo, belongsTo, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
 import { slugify } from '@ioc:Adonis/Addons/LucidSlugify'
-import Client from './Client'
-import ClientTicketSeverity from './ClientTicketSeverity'
+import Client from '../General/Client'
 import ClientTicketCategory from './ClientTicketCategory'
 import ClientTicketAttachment from './ClientTicketAttachment'
 

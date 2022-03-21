@@ -1,7 +1,7 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import ClientLicense from 'App/Models/ClientLicense'
-import Ticket from 'App/Models/Ticket'
-import Users from 'App/Models/Users'
+import ClientLicense from 'App/Models/Client/General/ClientLicense'
+import Ticket from 'App/Models/Administrator/Ticket/Ticket'
+import Users from 'App/Models/Administrator/General/Users'
 import { v4 } from 'uuid'
 
 export default class ViewersController {
